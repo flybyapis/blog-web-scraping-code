@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+
+# Secrets & config
+config.py
+.env
+
+# Runtime output
+*.log
+*.csv
+sent_deals.json
+price_history.csv
+price_chart.png
