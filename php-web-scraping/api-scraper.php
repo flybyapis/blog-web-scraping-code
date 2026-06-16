@@ -33,29 +33,69 @@ if (!$key) {
     exit(1);
 }
 
-$query = $argv[1] ?? 'php web scraping';
 $opts  = getopt('', ['num::', 'gl::', 'hl::']);
+$query = firstNonFlagArg($argv) ?? 'php web scraping';
 
-$client = new Client();
+// http_errors => false so a non-200 is a normal response we inspect, not an
+// exception that dumps a stack trace. Real tools surface a clean message.
+$client = new Client(['http_errors' => false, 'timeout' => 20]);
 
-$response = $client->get('https://google-serp-search-api.p.rapidapi.com/search', [
-    'query' => [
-        'q'   => $query,
-        'num' => (int) ($opts['num'] ?? 10),
-        'gl'  => $opts['gl'] ?? 'us',
-        'hl'  => $opts['hl'] ?? 'en',
-    ],
-    'headers' => [
-        'X-RapidAPI-Key'  => $key,
-        'X-RapidAPI-Host' => 'google-serp-search-api.p.rapidapi.com',
-    ],
-]);
+try {
+    $response = $client->get('https://google-serp-search-api.p.rapidapi.com/search', [
+        'query' => [
+            'q'   => $query,
+            'num' => (int) ($opts['num'] ?? 10),
+            'gl'  => $opts['gl'] ?? 'us',
+            'hl'  => $opts['hl'] ?? 'en',
+        ],
+        'headers' => [
+            'X-RapidAPI-Key'  => $key,
+            'X-RapidAPI-Host' => 'google-serp-search-api.p.rapidapi.com',
+        ],
+    ]);
+} catch (\GuzzleHttp\Exception\GuzzleException $e) {
+    // Connection refused, DNS failure, timeout: a network problem, not an HTTP status.
+    fwrite(STDERR, "Could not reach the API: {$e->getMessage()}\n");
+    exit(1);
+}
 
-$data = json_decode((string) $response->getBody(), true)['data'] ?? [];
+$status = $response->getStatusCode();
+$body   = (string) $response->getBody();
+
+if ($status !== 200) {
+    fwrite(STDERR, "API returned HTTP {$status}.\n");
+    fwrite(STDERR, trim($body) . "\n");
+    if ($status === 403) {
+        fwrite(STDERR, "Check that your key is subscribed at https://rapidapi.com/flybyapi1/api/google-serp-search-api\n");
+    } elseif ($status >= 500) {
+        fwrite(STDERR, "That is an API-side error. Wait a moment and retry.\n");
+    }
+    exit(1);
+}
+
+$data = json_decode($body, true)['data'] ?? [];
 
 printf("Results for: %s\n\n", $query);
 
-foreach ($data['organic'] ?? [] as $result) {
+$results = $data['organic_results'] ?? [];
+
+if ($results === []) {
+    echo "No organic results returned.\n";
+    exit(0);
+}
+
+foreach ($results as $result) {
     printf("%2d. %s\n", $result['position'] ?? 0, $result['title'] ?? '');
     printf("    %s\n",  $result['link'] ?? '');
+}
+
+/** First CLI argument that is not a --flag (so the query can go anywhere). */
+function firstNonFlagArg(array $argv): ?string
+{
+    foreach (array_slice($argv, 1) as $arg) {
+        if (!str_starts_with($arg, '--')) {
+            return $arg;
+        }
+    }
+    return null;
 }
