@@ -10,6 +10,7 @@ Each folder in this repo corresponds to a blog post. You'll find ready-to-run sc
 
 | Folder | Article | APIs Used |
 |--------|---------|-----------|
+| `amazon-rank-tracker/` | [Track Amazon Rankings: Free and Paid Tools That Update Daily](https://flybyapis.com/blog/track-amazon-rankings/) | [Amazon Product Data API](https://flybyapis.com/apis/amazon-scraper/) |
 | `amazon-price-tracker-python/` | [Build an Amazon Price Tracker with Python](https://flybyapis.com/blog/amazon-price-tracker-python/) | [Amazon Product Data API](https://flybyapis.com/apis/amazon-scraper/) |
 | `amazon-deals-bot-telegram/` | [Build an Amazon Deals Bot for Telegram](https://flybyapis.com/blog/amazon-deals-bot-telegram/) | [Amazon Product Data API](https://flybyapis.com/apis/amazon-scraper/) |
 | `golang-web-scraper/` | [Golang Web Scraper: Build One With Colly in Under 30 Minutes](https://flybyapis.com/blog/golang-web-scraper/) | [Google Search API](https://flybyapis.com/apis/google-search/) |
