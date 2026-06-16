@@ -16,6 +16,7 @@ Each folder in this repo corresponds to a blog post. You'll find ready-to-run sc
 | `golang-web-scraper/` | [Golang Web Scraper: Build One With Colly in Under 30 Minutes](https://flybyapis.com/blog/golang-web-scraper/) | [Google Search API](https://flybyapis.com/apis/google-search/) |
 | `export-google-maps-list/` | [Export Google Maps List to CSV: A Python Tutorial](https://flybyapis.com/blog/export-google-maps-list/) | [Google Maps Scraper API](https://flybyapis.com/apis/google-maps/) |
 | `beautifulsoup-vs-scrapy/` | [BeautifulSoup vs Scrapy: When Each One Wins (With Benchmarks)](https://flybyapis.com/blog/beautifulsoup-vs-scrapy/) | [Google Search API](https://flybyapis.com/apis/google-search/) |
+| `php-web-scraping/` | [PHP Web Scraping Tutorial: From First Request to Full Crawler](https://flybyapis.com/blog/php-web-scraping-tutorial/) | [Google Search API](https://flybyapis.com/apis/google-search/) |
 
 ## Getting Started
 
