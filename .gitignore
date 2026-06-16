@@ -22,3 +22,6 @@ config.py
 sent_deals.json
 price_history.csv
 price_chart.png
+
+# Keep sample input files (they are templates, not runtime output)
+!amazon-rank-tracker/keywords.csv
