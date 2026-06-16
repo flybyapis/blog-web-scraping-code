@@ -1,0 +1,16 @@
+{
+    "name": "flybyapis/php-web-scraping",
+    "description": "A complete, runnable PHP web crawler from the FlyByAPIs tutorial: frontier, dedup, concurrency, retries, SQLite. Plus a FlyByAPIs Google Search API example.",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1",
+        "ext-pdo": "*",
+        "guzzlehttp/guzzle": "^7.8",
+        "symfony/dom-crawler": "^6.4 || ^7.0",
+        "symfony/css-selector": "^6.4 || ^7.0"
+    },
+    "require-dev": {
+        "symfony/panther": "^2.1"
+    }
+}
