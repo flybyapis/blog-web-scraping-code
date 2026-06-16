@@ -52,9 +52,20 @@ if __name__ == "__main__":
         print("Get one free at: https://rapidapi.com/flybyapi1/api/google-serp-search-api")
         raise SystemExit(1)
 
-    data = search(args.query, gl=args.gl, num=args.num)
+    try:
+        data = search(args.query, gl=args.gl, num=args.num)
+    except requests.exceptions.HTTPError as e:
+        code = e.response.status_code
+        raise SystemExit(f"API returned HTTP {code}. If it's a 5xx, the endpoint is busy — try again in a moment.")
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(f"Request failed: {e}")
+
     results = data.get("organic_results") or data.get("results") or []
     print(f"Query: {args.query}\n")
+    if not results:
+        print("No organic results in the response. Raw payload:")
+        print(data)
+        raise SystemExit(0)
     for i, item in enumerate(results, 1):
         title = item.get("title", "")
         link = item.get("link") or item.get("url", "")
