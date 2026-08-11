@@ -18,6 +18,7 @@ Each folder in this repo corresponds to a blog post. You'll find ready-to-run sc
 | `scrape-google-maps-python/` | [Scrape Google Maps With Python: Full Tutorial With Working Code](https://flybyapis.com/blog/scrape-google-maps-python/) | [Google Maps Scraper API](https://flybyapis.com/apis/google-maps/) |
 | `beautifulsoup-vs-scrapy/` | [BeautifulSoup vs Scrapy: When Each One Wins (With Benchmarks)](https://flybyapis.com/blog/beautifulsoup-vs-scrapy/) | [Google Search API](https://flybyapis.com/apis/google-search/) |
 | `php-web-scraping/` | [PHP Web Scraping Tutorial: From First Request to Full Crawler](https://flybyapis.com/blog/php-web-scraping-tutorial/) | [Google Search API](https://flybyapis.com/apis/google-search/) |
+| `export-google-reviews/` | [How to Export Google Reviews to CSV (2 Methods That Actually Work)](https://flybyapis.com/blog/export-google-reviews/) | [Google Maps Scraper API](https://flybyapis.com/apis/google-maps/) |
 
 ## Getting Started
 
