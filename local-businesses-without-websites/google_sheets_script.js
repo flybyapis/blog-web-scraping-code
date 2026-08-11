@@ -4,7 +4,6 @@ const PAGES = 3; // each page checks 20 businesses
 
 function findLeads() {
   const sheet = SpreadsheetApp.getActiveSheet();
-  sheet.clearContents();
 
   const seen = {};
   const rows = [];
@@ -45,6 +44,7 @@ function findLeads() {
 
   rows.sort(function (a, b) { return b[5] - a[5]; }); // most reviews first
 
+  sheet.clearContents(); // only clear once all pages fetched fine
   sheet.appendRow(["Name", "Phone", "Address", "Category", "Rating", "Reviews", "Maps link"]);
   rows.forEach(function (row) { sheet.appendRow(row); });
 }

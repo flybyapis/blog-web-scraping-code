@@ -31,7 +31,10 @@ def fetch_page(offset):
 
 leads = {}
 for page in range(PAGES):
-    for biz in fetch_page(page * LIMIT):
+    batch = fetch_page(page * LIMIT)
+    if not batch:  # no more results, stop early
+        break
+    for biz in batch:
         if biz.get("website_url"):  # has a website: not a lead
             continue
         place_id = biz.get("place_id")
