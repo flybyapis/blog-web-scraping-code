@@ -3,7 +3,7 @@ Export a Google Maps List to CSV. FlyByAPIs.
 
 Pulls a full list of businesses from a Google Maps search via the FlyByAPIs
 Google Maps Extractor API and writes it to a CSV you can open in Excel or
-Google Sheets. One request returns up to 200 businesses, so the script
+Google Sheets. One request returns up to 20 businesses, so the script
 paginates with `offset` to collect lists larger than that.
 
 Only dependency: requests. Everything else is the Python standard library.
@@ -28,8 +28,8 @@ import requests
 API_HOST = "google-maps-extractor2.p.rapidapi.com"
 URL = f"https://{API_HOST}/locate_and_search"
 
-# The API returns at most 200 results per request. To get more, page with offset.
-MAX_PAGE_SIZE = 200
+# The API returns at most 20 results per request. To get more, page with offset.
+MAX_PAGE_SIZE = 20
 
 HEADERS = {
     "X-RapidAPI-Key": os.environ.get("RAPIDAPI_KEY", ""),

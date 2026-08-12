@@ -34,7 +34,7 @@ The output lands in `google_maps_list.csv`, ready to open in Excel or Google She
 ## How it works
 
 1. Calls the `/locate_and_search` endpoint with a plain-English query.
-2. One request returns up to 200 businesses, so it pages with `offset` until it hits your target count.
+2. One request returns up to 20 businesses, so it pages with `offset` until it hits your target count.
 3. Dedupes by `google_id` (paginated map results overlap).
 4. Flattens every field the API returns (41 columns) and writes a UTF-8 CSV. Nested
    fields like `working_hours` and `about` are kept as JSON so nothing is lost.
