@@ -20,6 +20,7 @@ Each folder in this repo corresponds to a blog post. You'll find ready-to-run sc
 | `beautifulsoup-vs-scrapy/` | [BeautifulSoup vs Scrapy: When Each One Wins (With Benchmarks)](https://flybyapis.com/blog/beautifulsoup-vs-scrapy/) | [Google Search API](https://flybyapis.com/apis/google-search/) |
 | `php-web-scraping/` | [PHP Web Scraping Tutorial: From First Request to Full Crawler](https://flybyapis.com/blog/php-web-scraping-tutorial/) | [Google Search API](https://flybyapis.com/apis/google-search/) |
 | `css-selector-vs-xpath/` | [CSS Selector vs XPath: The Definitive Cheat Sheet (With Real Benchmarks)](https://flybyapis.com/blog/css-selector-vs-xpath/) | [Amazon Product Data API](https://flybyapis.com/apis/amazon-scraper/) |
+| `export-google-reviews/` | [How to Export Google Reviews to CSV (2 Methods That Actually Work)](https://flybyapis.com/blog/export-google-reviews/) | [Google Maps Scraper API](https://flybyapis.com/apis/google-maps/) |
 
 ## Getting Started
 
