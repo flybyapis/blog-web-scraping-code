@@ -1,0 +1,7 @@
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+cssselect>=1.2
+parsel>=1.9
+selenium>=4.20
+playwright>=1.44
